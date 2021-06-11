@@ -1,25 +1,64 @@
-import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react'
+import Navbar from './components/Navbar'
+import ProductsGrid from './components/ProductsGrid'
+class App extends Component {
+  state = {
+    myProducts: [
+      {
+        title: "produit 1",
+        caption: "Ma super caption"
+      },
+      {
+        title: "produit 2",
+        caption: "Ma super caption"
+      },
+      {
+        title: "produit 3",
+        caption: "Ma super caption"
+      },
+      {
+        title: "produit 4",
+        caption: "Ma super caption"
+      },
+      {
+        title: "produit 5",
+        caption: "Ma super caption"
+      },
+      {
+        title: "produit 6",
+        caption: "Ma super caption"
+      },
+    ],
+    myCart: []
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  addToCart = (prod) => {
+    this.setState(prevState => ({
+      myCart: [...prevState.myCart, prod]
+    }))
+    console.log(this.state.myCart)
+  }
+
+  render() {
+    
+
+    return <div className="main">
+      <Navbar myCart={this.state.myCart} />
+      <ProductsGrid addToCart={this.addToCart} myProducts={this.state.myProducts} />
+    </div>;
+  }
 }
 
+
 export default App;
+
+
+
+
+
+
+
+
+
+
