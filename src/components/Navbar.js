@@ -34,7 +34,7 @@ export default function ButtonAppBar(props) {
                     <Typography variant="h6" className={classes.title}>
                         News
           </Typography>
-                    <PanierDialog myCart={props.myCart} />
+                    <PanierDialog deleteFromCart={props.deleteFromCart} myCart={props.myCart} />
 
                 </Toolbar>
             </AppBar>

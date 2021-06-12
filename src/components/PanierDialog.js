@@ -46,7 +46,11 @@ export default function AlertDialogSlide(props) {
                 <DialogTitle id="alert-dialog-slide-title">{"Panier"}</DialogTitle>
                 <DialogContent>
                     {
-                        props.myCart.map((e, index) => <h1 key={index}> {e.title} </h1>)
+                        props.myCart.map((e, index) => <div style={{ display: "flex", alignItems: "center", width: 400, justifyContent: "space-between" }} key={index}>
+                            <h1 > {e.title} </h1>
+                            <p>{e.quantity}</p>
+                            <Button onClick={event => props.deleteFromCart(e)} variant="contained" style={{ background: "red", color: "white" }}>Delete</Button>
+                        </div>)
                     }
                 </DialogContent>
             </Dialog>
